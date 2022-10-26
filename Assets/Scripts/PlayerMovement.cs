@@ -54,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
             
             animator.SetBool("Salto", true);
         }
+
+        /*GameManager.Instance.RestarVidas();
+        GameManager.Instance.vidas = 3;*/
+        
+        Global.nivel = 1;
         
     
 
@@ -70,5 +75,13 @@ public class PlayerMovement : MonoBehaviour
         {
             director.Play();
         }
+
+        if(collision.gameObject.tag == "Suelo")
+        {
+            animator.SetBool("Salto", false);
+        }
     }
+
+    
+     
 }
