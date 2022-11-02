@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Cinematica
   - Suelo
+  - Estrellas
+  - Bomba
   layers:
   - Default
   - TransparentFX

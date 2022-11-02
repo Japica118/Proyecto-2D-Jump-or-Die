@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public bool isGrounded;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +81,19 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Salto", false);
         }
+
+        if(collision.gameObject.CompareTag("Estrellas"))
+        {
+            Debug.Log("Tengo estrellas");
+            Destroy(collision.gameObject);
+        }
     }
+
+
+
+         
+        
+    
 
     
      

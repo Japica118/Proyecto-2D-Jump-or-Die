@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public int vidas = 3;
-    public int puntos = 0;
+
+    public Image [] vida;
+    public int vidasRestantes;
     
     void Awake()
     {
-        //Si ya hay una instancia y no soy yo, me destruyo
+        //Si ya hay una instancia y no soy yo, me destruyo. 
         if(Instance != null && Instance != this)
         {
             Destroy(this);
@@ -23,15 +25,21 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void RestarVidas()
+    public void PerderVida()
     {
-        vidas--;
+        vidasRestantes--;
+        vida[vidasRestantes].enabled = false;
+        if(vidasRestantes==0)
+        {
+            Debug.Log("Una vida menos");
+        }
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        
+        /*if(Input.GetKeyDown(KeyCode.Return))
+        PerderVida();*/
     }
+
+    
 }
