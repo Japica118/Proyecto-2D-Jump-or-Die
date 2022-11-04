@@ -6,9 +6,11 @@ public class StarCounter : MonoBehaviour
 {
     public int numberofStars;
     public Text numberofstarsText;
-    
-
     // Start is called before the first frame update
+    void Awake()
+    {
+    }
+    
     void Start()
     {
         numberofStars = 0;
@@ -21,4 +23,6 @@ public class StarCounter : MonoBehaviour
         numberofStars++;
         numberofstarsText.text =  numberofStars.ToString();
     }
+
+    
 }
