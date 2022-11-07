@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    private SFXManager sfxManager;
+    private BGMManager bgmManager;
+    private int stars;
 
     public Image [] vida;
     public int vidasRestantes;
@@ -15,6 +18,8 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
         canvas.GetComponent<GameObject>();
         
         //Si ya hay una instancia y no soy yo, me destruyo. 
@@ -36,11 +41,15 @@ public class GameManager : MonoBehaviour
         vida[vidasRestantes].enabled = false;
         if(vidasRestantes == 0)
         {
+            bgmManager.StopBGM();
             canvas.SetActive(true);
             Destroy(GameObject.FindWithTag("Player"));
             Debug.Log("Una vida menos");
         }
     }
+
+
+
 
 
 

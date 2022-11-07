@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayableDirector director;
     public Animator animator;
     public bool isGrounded;
+    
 
 
     // Start is called before the first frame update
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame

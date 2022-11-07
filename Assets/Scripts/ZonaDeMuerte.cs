@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class ZonaDeMuerte : MonoBehaviour
 {
-    //private SFXManager sfxManager;
-    //private BGMManager bgmManager;
+    private SFXManager sfxManager;
+    private BGMManager bgmManager;
     public GameObject canvas;
     // Start is called before the first frame update
     void Awake()
     {
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
         canvas.GetComponent<GameObject>();
         //sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         //bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();    
@@ -26,12 +28,14 @@ public class ZonaDeMuerte : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
-            //sfxManager.DeathSound();
-            //bgmManager.StopBGM();
+            bgmManager.StopBGM();
+            sfxManager.DeathSound();
             canvas.SetActive(true);
+            Destroy(collision.gameObject);            
             Debug.Log("Has perdido");
-           }
+        }
 
     }
+
+
 }
