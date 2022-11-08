@@ -14,14 +14,6 @@ public class ZonaDeMuerte : MonoBehaviour
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
         canvas.GetComponent<GameObject>();
-        //sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
-        //bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

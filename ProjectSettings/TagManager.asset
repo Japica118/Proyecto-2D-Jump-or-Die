@@ -8,6 +8,7 @@ TagManager:
   - Suelo
   - Estrellas
   - Bomba
+  - Instrucciones
   layers:
   - Default
   - TransparentFX

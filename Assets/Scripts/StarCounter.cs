@@ -6,17 +6,6 @@ public class StarCounter : MonoBehaviour
 {
     public int numberofStars;
     public Text numberofstarsText;
-    public GameObject canvas;
-    private SFXManager sfxManager;
-    private BGMManager bgmManager;
-    //public GameObject [] stars;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
-        bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
-        canvas.GetComponent<GameObject>();
-    }
     
     void Start()
     {
@@ -34,16 +23,6 @@ public class StarCounter : MonoBehaviour
         numberofstarsText.text =  numberofStars.ToString();
     }
 
-    public void EstrellasTotales()
-    {
-        if(numberofStars == 8)
-        {
-            bgmManager.StopBGM();
-            canvas.SetActive(true);
-            Destroy(GameObject.FindWithTag("Player"));
-            Debug.Log("He ganado");
-        }
-    }
 
     
 }

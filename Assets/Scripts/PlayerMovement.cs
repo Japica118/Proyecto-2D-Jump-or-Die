@@ -12,15 +12,21 @@ public class PlayerMovement : MonoBehaviour
     public PlayableDirector director;
     public Animator animator;
     public bool isGrounded;
+    private SFXManager sfxManager;
+    public GameObject canvas;
     
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+
         rbody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        canvas.GetComponent<GameObject>();
 
         
     }
@@ -55,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             rbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+            sfxManager.JumpSound();
             
             animator.SetBool("Salto", true);
         }
@@ -78,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "Cinematica")
         {
             director.Play();
+            Destroy(collision.gameObject);
         }
 
         if(collision.gameObject.tag == "Suelo")
@@ -89,7 +98,19 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Tengo estrellas");
             Destroy(collision.gameObject);
+            GameManager.Instance.EstrellasTotales();
         }
+
+        if(collision.gameObject.CompareTag("Instrucciones"))
+        {
+            Debug.Log("Instrucciones recibidas");
+            canvas.SetActive(true);
+            Destroy(collision.gameObject);
+        }
+
+
+
+
     }
 
 

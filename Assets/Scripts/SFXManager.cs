@@ -7,6 +7,8 @@ public class SFXManager : MonoBehaviour
     public AudioClip deathSFX;
     public AudioClip starSFX;
     public AudioClip bombaSFX;
+    public AudioClip jumpSFX;
+   
 
     private AudioSource _audioSource;
 
@@ -29,5 +31,11 @@ public class SFXManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(bombaSFX);
     }
+
+    public void JumpSound()
+    {
+        _audioSource.PlayOneShot(jumpSFX);
+    }
+
 
 }
