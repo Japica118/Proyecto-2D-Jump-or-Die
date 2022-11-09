@@ -108,10 +108,17 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-
-
-
+        /*if(collision.gameObject.CompareTag("Bomba"))
+        {
+            StartCoroutine(GameObject.Find("Main Camera").GetComponent<CameraShake>().Shake(0.5f, 0.1f));
+        }*/
     }
+
+}
+
+
+
+    
 
 
 
@@ -121,4 +128,4 @@ public class PlayerMovement : MonoBehaviour
 
     
      
-}
+
